@@ -20,6 +20,11 @@
   - if it's greater then 5: We click on position 1 of the recycler view, we go to the news details fragment, then we go back to the news fragment after 3 seconds and repeat what we have done for position 2 and 3.
 - We go back to the news fragment and swipe the layout to refresh the articles, we wait for 5 seconds and close application.
 
+### UseCaseTest
+
+- Right Click on the UseCaseTest class and click on "Run Test".
+- It's a use case test to check the size of the static news that is returned. 
+
 # Authors
 
 **Rizk Mouawad**

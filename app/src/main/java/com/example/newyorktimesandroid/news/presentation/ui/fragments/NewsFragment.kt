@@ -35,8 +35,6 @@ class NewsFragment : BaseFragment() {
     ): View? {
         root = inflater.inflate(R.layout.fragment_news, container, false)
 
-        mActivity = activity
-
         implementViews()
 
         return root
@@ -62,15 +60,13 @@ class NewsFragment : BaseFragment() {
                         }
                         Status.ERROR -> {
                             hideLoading()
-                            mActivity?.let {
-                                if (!NetworkUtils.isNetworkAvailable(it)) {
+                                if (!NetworkUtils.isNetworkAvailable(requireActivity())) {
                                     Toast.makeText(
-                                        mActivity,
+                                        requireActivity(),
                                         getString(R.string.msg_no_internet_connection),
                                         Toast.LENGTH_LONG
                                     ).show()
                                 }
-                            }
                         }
                         Status.SUCCESS -> {
                             hideLoading()
@@ -86,7 +82,7 @@ class NewsFragment : BaseFragment() {
             context,
             LinearLayoutManager.VERTICAL, false
         )
-        root.rvNews?.adapter = mActivity?.let { NewsAdapter(it, data?.data) }
+        root.rvNews?.adapter = NewsAdapter(data?.data)
     }
 
     private fun showLoading() {

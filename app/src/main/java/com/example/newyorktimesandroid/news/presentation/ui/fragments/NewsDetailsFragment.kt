@@ -31,9 +31,7 @@ class NewsDetailsFragment : BaseFragment() {
     ): View? {
         root = inflater.inflate(R.layout.fragment_news_details, container, false)
 
-        mActivity = activity
-
-        newsBean = mActivity?.intent?.getSerializableExtra(AppVars.NEWS_BUNDLE) as NewsBean?
+        newsBean = requireActivity().intent?.getParcelableExtra(AppVars.NEWS_BUNDLE) as NewsBean?
 
         implementViews()
 
